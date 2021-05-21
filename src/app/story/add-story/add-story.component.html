@@ -1,0 +1,63 @@
+
+<div class="card-header pointer" id="heading" data-toggle="collapse" data-target="#collapse" aria-expanded="true" aria-controls="collapse">
+      <h4 class="mb-0"> Add Story </h4>
+</div>
+
+    <div id="collapse" class="collapse show" aria-labelledby="heading" data-parent="#accordion">
+
+      <form [formGroup]="storyForm" (onSubmit)="submitStory()">
+        <div class="input-group mb-1">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="basic-addon1">Receiver Name</span>
+            </div>
+            <input type="text" formControlName="recieverName" class="form-control" maxlength="100"  aria-label=""  aria-describedby="basic-addon1" >
+            
+                <div *ngIf="storyForm.controls['recieverName'].invalid && storyForm.controls['recieverName'].touched" 
+                      class="alert alert-danger">
+                  <div *ngIf="storyForm.controls['recieverName'].errors.required">
+                    Required.
+                  </div>
+                </div>                      
+
+          </div>
+
+          <div class="input-group mb-1">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="basic-addon1">Sender Name</span>
+            </div>
+            <input type="text" formControlName="senderName" class="form-control" maxlength="100"  aria-label=""  aria-describedby="basic-addon1" >
+            
+                <div *ngIf="storyForm.controls['senderName'].invalid && storyForm.controls['senderName'].touched" 
+                      class="alert alert-danger">
+                  <div *ngIf="storyForm.controls['senderName'].errors.required">
+                    Required.
+                  </div>
+                </div>                      
+
+          </div>
+
+          <div class="input-group mb-1">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="basic-addon1">Story</span>
+            </div>
+            <input type="text" formControlName="storyText" class="form-control" maxlength="100"  aria-label=""  aria-describedby="basic-addon1" >
+            
+                <div *ngIf="storyForm.controls['storyText'].invalid && storyForm.controls['storyText'].touched" 
+                      class="alert alert-danger">
+                  <div *ngIf="storyForm.controls['storyText'].errors.required">
+                    Required.
+                  </div>
+                </div>                      
+
+          </div>
+
+          <div class="input-group mb-1">
+            <button type="button" [disabled]="storyForm.invalid" class="btn btn-info btn-lg w-49 mr-search" (click) = "submitStory()">Submit</button>
+            <button type="button" class="btn btn-secondary btn-lg w-49" >Clear</button>
+          </div>
+
+
+
+    </form>
+</div>
+
